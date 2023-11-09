@@ -12,7 +12,7 @@ htmlwidgets: true
 
 authors:
   - name: Jie Fan
-    url: "https://en.wikipedia.org/wiki/Albert_Einstein"
+    # url: "https://en.wikipedia.org/wiki/Albert_Einstein"
     affiliations:
       name: MIT
   # - name: Boris Podolsky
@@ -61,7 +61,7 @@ _styles: >
   }
 ---
 
-## Proposal
+## Abstract
 
 This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine.
 You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`.
@@ -73,8 +73,10 @@ Here is an example:
 
 Note that MathJax 3 is [a major re-write of MathJax](https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html) that brought a significant improvement to the loading and rendering speed, which is now [on par with KaTeX](http://www.intmath.com/cg5/katex-mathjax-comparison.php).
 
+## Research Plan
 
-## Images and Figures
+
+<!-- ## Images and Figures
 
 Its generally a better idea to avoid linking to images hosted elsewhere - links can break and you
 might face losing important information in your blog post.
@@ -125,7 +127,7 @@ Some more complex ways to load images (note the different styles of the shapes/s
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/2022-12-01-distill-example/7.jpg" class="img-fluid" %}
     </div>
-</div>
+</div> -->
 
 
 
@@ -228,14 +230,14 @@ string myString;
 
 *** -->
 
-## Blockquotes
+<!-- ## Blockquotes
 
 <blockquote>
     We do not grow absolutely, chronologically. We grow sometimes in one dimension, and not in another, unevenly. We grow partially. We are relative. We are mature in one realm, childish in another.
     —Anais Nin
 </blockquote>
 
-***
+*** -->
 
 
 ## Layouts
@@ -282,7 +284,7 @@ It does not interrupt the normal flow of `.l-body` sized text except on mobile s
   <p>.l-gutter</p>
 </div>
 
-***
+<!-- ***
 
 ## Other Typography?
 
@@ -390,4 +392,4 @@ Here's a line for us to start with.
 This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
 
 This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
+This line is only separated by a single newline, so it's a separate line in the *same paragraph*. -->
