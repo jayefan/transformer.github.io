@@ -11,18 +11,18 @@ htmlwidgets: true
 #   - name: Anonymous
 
 authors:
-  - name: Albert Einstein
+  - name: Jie Fan
     url: "https://en.wikipedia.org/wiki/Albert_Einstein"
     affiliations:
-      name: IAS, Princeton
-  - name: Boris Podolsky
-    url: "https://en.wikipedia.org/wiki/Boris_Podolsky"
-    affiliations:
-      name: IAS, Princeton
-  - name: Nathan Rosen
-    url: "https://en.wikipedia.org/wiki/Nathan_Rosen"
-    affiliations:
-      name: IAS, Princeton
+      name: MIT
+  # - name: Boris Podolsky
+  #   url: "https://en.wikipedia.org/wiki/Boris_Podolsky"
+  #   affiliations:
+  #     name: IAS, Princeton
+  # - name: Nathan Rosen
+  #   url: "https://en.wikipedia.org/wiki/Nathan_Rosen"
+  #   affiliations:
+  #     name: IAS, Princeton
 
 # must be the exact same name as your blogpost
 bibliography: 2022-12-01-distill-example.bib  
@@ -61,7 +61,7 @@ _styles: >
   }
 ---
 
-## Equations
+## Proposal
 
 This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine.
 You just need to surround your math expression with `$$`, like `$$ E = mc^2 $$`.
@@ -70,9 +70,6 @@ If you leave it inside a paragraph, it will produce an inline expression, just l
 To use display mode, again surround your expression with `$$` and place it as a separate paragraph.
 Here is an example:
 
-$$
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-$$
 
 Note that MathJax 3 is [a major re-write of MathJax](https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html) that brought a significant improvement to the loading and rendering speed, which is now [on par with KaTeX](http://www.intmath.com/cg5/katex-mathjax-comparison.php).
 
@@ -130,9 +127,9 @@ Some more complex ways to load images (note the different styles of the shapes/s
     </div>
 </div>
 
-### Interactive Figures
 
-Here's how you could embed interactive figures that have been exported as HTML files.
+
+<!-- Here's how you could embed interactive figures that have been exported as HTML files.
 Note that we will be using plotly for this demo, but anything built off of HTML should work
 (**no extra javascript is allowed!**).
 All that's required is for you to export your figure into HTML format, and make sure that the file
@@ -143,9 +140,9 @@ To embed it into any page, simply insert the following code anywhere into your p
 {% raw %}{% include [FIGURE_NAME].html %}{% endraw %} 
 ```
 
-For example, the following code can be used to generate the figure underneath it.
+For example, the following code can be used to generate the figure underneath it. -->
 
-```python
+<!-- ```python
 import pandas as pd
 import plotly.express as px
 
@@ -171,9 +168,9 @@ Voila!
 
 <div class="l-page">
   <iframe src="{{ 'assets/html/2022-12-01-distill-example/plotly_demo_1.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%"></iframe>
-</div>
+</div> -->
 
-## Citations
+<!-- ## Citations
 
 Citations are then used in the article body with the `<d-cite>` tag.
 The key attribute is a reference to the id provided in the bibliography.
@@ -185,14 +182,14 @@ If you have an appendix, a bibliography is automatically created and populated i
 Distill chose a numerical inline citation style to improve readability of citation dense articles and because many of the benefits of longer citations are obviated by displaying more information on hover.
 However, we consider it good style to mention author last names if you discuss something at length and it fits into the flow well — the authors are human and it’s nice for them to have the community associate them with their work.
 
-***
+*** -->
 
-## Footnotes
+<!-- ## Footnotes
 
 Just wrap the text you would like to show up in a footnote in a `<d-footnote>` tag.
-The number of the footnote will be automatically generated.<d-footnote>This will become a hoverable footnote.</d-footnote>
+The number of the footnote will be automatically generated.<d-footnote>This will become a hoverable footnote.</d-footnote> -->
 
-***
+<!-- ***
 
 ## Code Blocks
 
@@ -229,42 +226,7 @@ string myString;
 
 {% endhighlight %}
 
-***
-
-## Diagrams
-
-This theme supports generating various diagrams from a text description using [jekyll-diagrams](https://github.com/zhustec/jekyll-diagrams){:target="\_blank"} plugin.
-Below, we generate a few examples of such diagrams using languages such as [mermaid](https://mermaid-js.github.io/mermaid/){:target="\_blank"}, [plantuml](https://plantuml.com/){:target="\_blank"}, [vega-lite](https://vega.github.io/vega-lite/){:target="\_blank"}, etc.
-
-**Note:** different diagram-generation packages require external dependencies to be installed on your machine.
-Also, be mindful of that because of diagram generation the fist time you build your Jekyll website after adding new diagrams will be SLOW.
-For any other details, please refer to [jekyll-diagrams](https://github.com/zhustec/jekyll-diagrams){:target="\_blank"} README.
-
-**Note:** This is not supported for local rendering! 
-
-The diagram below was generated by the following code:
-
-{% raw %}
-```
-{% mermaid %}
-sequenceDiagram
-    participant John
-    participant Alice
-    Alice->>John: Hello John, how are you?
-    John-->>Alice: Great!
-{% endmermaid %}
-```
-{% endraw %}
-
-{% mermaid %}
-sequenceDiagram
-participant John
-participant Alice
-Alice->>John: Hello John, how are you?
-John-->>Alice: Great!
-{% endmermaid %}
-
-***
+*** -->
 
 ## Blockquotes
 
