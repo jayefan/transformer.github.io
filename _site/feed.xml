@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:8080/staging/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:8080/staging/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-11-09T11:34:49-06:00</updated><id>http://0.0.0.0:8080/staging/feed.xml</id><title type="html">6.S898 Deep Learning Blogs 2023</title><subtitle>Staging website for the 2023 ICLR Blogposts track
-</subtitle><entry><title type="html">DL project:Transformer</title><link href="http://0.0.0.0:8080/staging/blog/2023/transformer_moving_window/" rel="alternate" type="text/html" title="DL project:Transformer" /><published>2023-11-09T00:00:00-06:00</published><updated>2023-11-09T00:00:00-06:00</updated><id>http://0.0.0.0:8080/staging/blog/2023/transformer_moving_window</id><content type="html" xml:base="http://0.0.0.0:8080/staging/blog/2023/transformer_moving_window/"><![CDATA[<h2 id="abstract">Abstract</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:8080/staging/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:8080/staging/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-11-09T12:08:44-06:00</updated><id>http://0.0.0.0:8080/staging/feed.xml</id><title type="html">6.S898 Deep Learning Blogs 2023</title><subtitle>Staging website for the 2023 ICLR Blogposts track
+</subtitle><entry><title type="html"></title><link href="http://0.0.0.0:8080/staging/blog/2023/2023-11-09-transformer_moving_window/" rel="alternate" type="text/html" title="" /><published>2023-11-09T12:08:44-06:00</published><updated>2023-11-09T12:08:44-06:00</updated><id>http://0.0.0.0:8080/staging/blog/2023/2023-11-09-transformer_moving_window</id><content type="html" xml:base="http://0.0.0.0:8080/staging/blog/2023/2023-11-09-transformer_moving_window/"><![CDATA[<h2 id="abstract">Abstract</h2>
 
-<p>This theme supports rendering beautiful math in inline and display modes using <a href="https://www.mathjax.org/">MathJax 3</a> engine.
-You just need to surround your math expression with <code class="language-plaintext highlighter-rouge">$$</code>, like <code class="language-plaintext highlighter-rouge">$$ E = mc^2 $$</code>.
-If you leave it inside a paragraph, it will produce an inline expression, just like \(E = mc^2\).</p>
+<p>This research means to discover the power of transformer in dealing with time series data, for instance traffic flow, with a dynamic time window. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction  as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer with fixed-length context window may have trouble dealing with the real-time data due to the heavy computation. Hence, this research means to figure out a novel method of using a dynamic window to deal with the long sequance time-series data of transformer using traffic data, discoving a better prediction model for traffic flow.</p>
 
-<p>To use display mode, again surround your expression with <code class="language-plaintext highlighter-rouge">$$</code> and place it as a separate paragraph.
-Here is an example:</p>
+<h2 id="literature-review">Literature Review</h2>
 
-<p>Note that MathJax 3 is <a href="https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html">a major re-write of MathJax</a> that brought a significant improvement to the loading and rendering speed, which is now <a href="http://www.intmath.com/cg5/katex-mathjax-comparison.php">on par with KaTeX</a>.</p>
-
-<h2 id="research-plan">Research Plan</h2>
+<h2 id="research-question">Research Question</h2>
+<p>Can dynamic window mechanisms in transformers outperform traditional LSTMs in predicting real-time conditions?</p>
 
 <!-- ## Images and Figures
 
@@ -65,151 +61,6 @@ which results in the following image:
 <p>&lt;/picture&gt;</p>
 
 <p>&lt;/figure&gt;</p>
-
-<p>To ensure that there are no namespace conflicts, you must save your asset to your unique directory
-<code class="language-plaintext highlighter-rouge">/assets/img/2023-05-01-[SUBMISSION NAME]</code> within your submission.</p>
-
-<p>Please avoid using the direct markdown method of embedding images; they may not be properly resized.
-Some more complex ways to load images (note the different styles of the shapes/shadows):</p>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/staging/assets/img/2022-12-01-distill-example/9-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/staging/assets/img/2022-12-01-distill-example/9-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/staging/assets/img/2022-12-01-distill-example/9-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/staging/assets/img/2022-12-01-distill-example/9.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/staging/assets/img/2022-12-01-distill-example/7-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/staging/assets/img/2022-12-01-distill-example/7-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/staging/assets/img/2022-12-01-distill-example/7-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/staging/assets/img/2022-12-01-distill-example/7.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-<div class="caption">
-    A simple, elegant caption looks good between image rows, after each row, or doesn't have to be there at all.
-</div>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/staging/assets/img/2022-12-01-distill-example/8-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/staging/assets/img/2022-12-01-distill-example/8-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/staging/assets/img/2022-12-01-distill-example/8-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/staging/assets/img/2022-12-01-distill-example/8.jpg" class="img-fluid z-depth-2" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/staging/assets/img/2022-12-01-distill-example/10-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/staging/assets/img/2022-12-01-distill-example/10-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/staging/assets/img/2022-12-01-distill-example/10-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/staging/assets/img/2022-12-01-distill-example/10.jpg" class="img-fluid z-depth-2" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/staging/assets/img/2022-12-01-distill-example/11-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/staging/assets/img/2022-12-01-distill-example/11-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/staging/assets/img/2022-12-01-distill-example/11-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/staging/assets/img/2022-12-01-distill-example/11.jpg" class="img-fluid" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/staging/assets/img/2022-12-01-distill-example/12-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/staging/assets/img/2022-12-01-distill-example/12-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/staging/assets/img/2022-12-01-distill-example/12-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/staging/assets/img/2022-12-01-distill-example/12.jpg" class="img-fluid" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/staging/assets/img/2022-12-01-distill-example/7-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/staging/assets/img/2022-12-01-distill-example/7-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/staging/assets/img/2022-12-01-distill-example/7-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/staging/assets/img/2022-12-01-distill-example/7.jpg" class="img-fluid" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-<p>–&gt;</p>
 
 <!-- Here's how you could embed interactive figures that have been exported as HTML files.
 Note that we will be using plotly for this demo, but anything built off of HTML should work
@@ -317,23 +168,23 @@ The keyword `linenos` triggers display of line numbers. You can try toggling it 
 
 *** -->
 
-<h2 id="layouts">Layouts</h2>
+<!-- ## Layouts
 
-<p>The main text column is referred to as the body.
-It is the assumed layout of any direct descendants of the <code class="language-plaintext highlighter-rouge">d-article</code> element.</p>
+The main text column is referred to as the body.
+It is the assumed layout of any direct descendants of the `d-article` element.
 
 <div class="fake-img l-body">
   <p>.l-body</p>
 </div>
 
-<p>For images you want to display a little larger, try <code class="language-plaintext highlighter-rouge">.l-page</code>:</p>
+For images you want to display a little larger, try `.l-page`:
 
 <div class="fake-img l-page">
   <p>.l-page</p>
 </div>
 
-<p>All of these have an outset variant if you want to poke out from the body text a little bit.
-For instance:</p>
+All of these have an outset variant if you want to poke out from the body text a little bit.
+For instance:
 
 <div class="fake-img l-body-outset">
   <p>.l-body-outset</p>
@@ -343,9 +194,9 @@ For instance:</p>
   <p>.l-page-outset</p>
 </div>
 
-<p>Occasionally you’ll want to use the full browser width.
-For this, use <code class="language-plaintext highlighter-rouge">.l-screen</code>.
-You can also inset the element a little from the edge of the browser by using the inset variant.</p>
+Occasionally you’ll want to use the full browser width.
+For this, use `.l-screen`.
+You can also inset the element a little from the edge of the browser by using the inset variant.
 
 <div class="fake-img l-screen">
   <p>.l-screen</p>
@@ -354,12 +205,12 @@ You can also inset the element a little from the edge of the browser by using th
   <p>.l-screen-inset</p>
 </div>
 
-<p>The final layout is for marginalia, asides, and footnotes.
-It does not interrupt the normal flow of <code class="language-plaintext highlighter-rouge">.l-body</code> sized text except on mobile screen sizes.</p>
+The final layout is for marginalia, asides, and footnotes.
+It does not interrupt the normal flow of `.l-body` sized text except on mobile screen sizes.
 
 <div class="fake-img l-gutter">
   <p>.l-gutter</p>
-</div>
+</div> -->
 
 <!-- ***
 
@@ -469,7 +320,7 @@ Here's a line for us to start with.
 This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
 
 This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*. -->]]></content><author><name>Jie Fan</name></author><summary type="html"><![CDATA[Your blog post's abstract. This is an example of a distill-style blog post and the main elements it supports.]]></summary></entry><entry><title type="html">Sample Blog Post</title><link href="http://0.0.0.0:8080/staging/blog/2022/distill-example/" rel="alternate" type="text/html" title="Sample Blog Post" /><published>2022-12-01T00:00:00-06:00</published><updated>2022-12-01T00:00:00-06:00</updated><id>http://0.0.0.0:8080/staging/blog/2022/distill-example</id><content type="html" xml:base="http://0.0.0.0:8080/staging/blog/2022/distill-example/"><![CDATA[<h2 id="equations">Equations</h2>
+This line is only separated by a single newline, so it's a separate line in the *same paragraph*. -->]]></content><author><name></name></author></entry><entry><title type="html">Sample Blog Post</title><link href="http://0.0.0.0:8080/staging/blog/2022/distill-example/" rel="alternate" type="text/html" title="Sample Blog Post" /><published>2022-12-01T00:00:00-06:00</published><updated>2022-12-01T00:00:00-06:00</updated><id>http://0.0.0.0:8080/staging/blog/2022/distill-example</id><content type="html" xml:base="http://0.0.0.0:8080/staging/blog/2022/distill-example/"><![CDATA[<h2 id="equations">Equations</h2>
 
 <p>This theme supports rendering beautiful math in inline and display modes using <a href="https://www.mathjax.org/">MathJax 3</a> engine.
 You just need to surround your math expression with <code class="language-plaintext highlighter-rouge">$$</code>, like <code class="language-plaintext highlighter-rouge">$$ E = mc^2 $$</code>.
