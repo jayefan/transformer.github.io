@@ -1,9 +1,9 @@
 ---
 layout: distill
-title: Sample Blog Post
+title: "DL project:Transformer"
 description: Your blog post's abstract.
   This is an example of a distill-style blog post and the main elements it supports.
-date: 2022-12-01
+date: 2023-11-09
 htmlwidgets: true
 
 # Anonymize when submitting
