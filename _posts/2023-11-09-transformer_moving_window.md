@@ -34,11 +34,11 @@ toc:
   # - name: Images and Figures
   #   subsections:
   #   - name: Interactive Figures
-  - name: Citations
-  - name: Footnotes
-  # - name: Code Blocks
-  # - name: Layouts
-  # - name: Other Typography?
+  - name: Literature Review
+  - name: Research Question
+  - name: Problem Formulation
+  - name: Experiments
+  - name: Conclusion and futrue work
 
 # Below is an example of injecting additional post-specific styles.
 # This is used in the 'Layouts' section of this post.
