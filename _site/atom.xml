@@ -4,7 +4,7 @@
  <title>6.S898 Deep Learning Blogs 2023</title>
  <link href="http://0.0.0.0:8080/staging/atom.xml" rel="self"/>
  <link href="http://0.0.0.0:8080/staging/"/>
- <updated>2023-11-09T12:08:44-06:00</updated>
+ <updated>2023-11-09T12:10:29-06:00</updated>
  <id>http://0.0.0.0:8080</id>
  <author>
    <name></name>
@@ -13,10 +13,10 @@
 
  
  <entry>
-   <title></title>
-   <link href="http://0.0.0.0:8080/blog/2023/2023-11-09-transformer_moving_window/"/>
-   <updated>2023-11-09T12:08:44-06:00</updated>
-   <id>http://0.0.0.0:8080/staging/blog/2023/2023-11-09-transformer_moving_window</id>
+   <title>Transformer with dynamic window for time series data</title>
+   <link href="http://0.0.0.0:8080/blog/2023/transformer_moving_window/"/>
+   <updated>2023-11-09T00:00:00-06:00</updated>
+   <id>http://0.0.0.0:8080/staging/blog/2023/transformer_moving_window</id>
    <content type="html">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 
 &lt;p&gt;This research means to discover the power of transformer in dealing with time series data, for instance traffic flow, with a dynamic time window. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction  as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer with fixed-length context window may have trouble dealing with the real-time data due to the heavy computation. Hence, this research means to figure out a novel method of using a dynamic window to deal with the long sequance time-series data of transformer using traffic data, discoving a better prediction model for traffic flow.&lt;/p&gt;

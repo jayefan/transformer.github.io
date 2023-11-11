@@ -1,6 +1,6 @@
 ---
 layout: distill
-title: "Transformer with dynamic window for time series data"
+title: Transformer with dynamic window for time series data
 description: A project for MIT 2023 Fall 6.S898 Deep Learning. A exploration of transformer.
 date: 2023-11-09
 htmlwidgets: true
@@ -25,7 +25,6 @@ authors:
 
 # must be the exact same name as your blogpost
 bibliography:  _bibliography/NeurIPS-2019-unsupervised-scalable-representation-learning-for-multivariate-time-series-Bibtex.bib
-_bibliography/acm_3447548.3467401.bib
 
 # Add a table of contents to your post.
 #   - make sure that TOC names match the actual section names
