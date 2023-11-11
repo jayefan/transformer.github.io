@@ -24,7 +24,7 @@ authors:
   #     name: IAS, Princeton
 
 # must be the exact same name as your blogpost
-bibliography:  assets/bibliography/2023-11-09-transformer_moving_window.bib
+bibliography:  2023-11-09-transformer_moving_window.bib
 
 # Add a table of contents to your post.
 #   - make sure that TOC names match the actual section names
