@@ -1,4 +1,4 @@
-I"Û1<h2 id="abstract">Abstract</h2>
+I"ó1<h2 id="abstract">Abstract</h2>
 
 <p>This research means to discover the power of transformer in dealing with time series data, for instance traffic flow, with a dynamic time window. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction  as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer with fixed-length context window may have trouble dealing with the real-time data due to the heavy computation. Hence, this research means to figure out a novel method of using a dynamic window to deal with the long sequance time-series data of transformer using traffic data, discoving a better prediction model for traffic flow.</p>
 
@@ -155,8 +155,8 @@ The keyword `linenos` triggers display of line numbers. You can try toggling it 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-
-*** -->
+<!-- ???? -->
+<p>*** â€“&gt;</p>
 
 <!-- ## Blockquotes
 

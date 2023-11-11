@@ -69,7 +69,7 @@ This research means to discover the power of transformer in dealing with time se
 ## Research Question
 Can dynamic window mechanisms in transformers outperform traditional LSTMs in predicting real-time conditions?
 
-
+???
 
 <!-- ## Images and Figures
 
@@ -184,7 +184,6 @@ string myString;
 
 {% endhighlight %}
 
-*** -->
 
 <!-- ## Blockquotes
 

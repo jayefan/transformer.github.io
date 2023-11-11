@@ -4,7 +4,7 @@
  <title>6.S898 Deep Learning Blogs 2023</title>
  <link href="http://0.0.0.0:8080/staging/atom.xml" rel="self"/>
  <link href="http://0.0.0.0:8080/staging/"/>
- <updated>2023-11-09T12:10:29-06:00</updated>
+ <updated>2023-11-11T02:22:39-06:00</updated>
  <id>http://0.0.0.0:8080</id>
  <author>
    <name></name>
@@ -25,6 +25,8 @@
 
 &lt;h2 id=&quot;research-question&quot;&gt;Research Question&lt;/h2&gt;
 &lt;p&gt;Can dynamic window mechanisms in transformers outperform traditional LSTMs in predicting real-time conditions?&lt;/p&gt;
+
+&lt;p&gt;???&lt;/p&gt;
 
 &lt;!-- ## Images and Figures
 
@@ -175,7 +177,6 @@ The keyword `linenos` triggers display of line numbers. You can try toggling it 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 
-*** --&gt;
 
 &lt;!-- ## Blockquotes
 
