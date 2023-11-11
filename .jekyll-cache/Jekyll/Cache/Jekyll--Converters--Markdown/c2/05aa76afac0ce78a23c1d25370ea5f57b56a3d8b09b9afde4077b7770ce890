@@ -1,76 +1,11 @@
----
-layout: distill
-title: Transformer with dynamic window for time series data
-description: A project for MIT 2023 Fall 6.S898 Deep Learning. A exploration of transformer.
-date: 2023-11-09
-htmlwidgets: true
+I"V&<h2 id="abstract">Abstract</h2>
 
-# Anonymize when submitting
-# authors:
-#   - name: Anonymous
+<p>This research means to discover the power of transformer in dealing with time series data, for instance traffic flow, with a dynamic time window. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction  as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer with fixed-length context window may have trouble dealing with the real-time data due to the heavy computation. Hence, this research means to figure out a novel method of using a dynamic window to deal with the long sequance time-series data of transformer using traffic data, discoving a better prediction model for traffic flow.</p>
 
-authors:
-  - name: Jie Fan
-    # url: "https://en.wikipedia.org/wiki/Albert_Einstein"
-    affiliations:
-      name: MIT
-  # - name: Boris Podolsky
-  #   url: "https://en.wikipedia.org/wiki/Boris_Podolsky"
-  #   affiliations:
-  #     name: IAS, Princeton
-  # - name: Nathan Rosen
-  #   url: "https://en.wikipedia.org/wiki/Nathan_Rosen"
-  #   affiliations:
-  #     name: IAS, Princeton
+<h2 id="literature-review">Literature Review</h2>
 
-# must be the exact same name as your blogpost
-bibliography:  _bibliography/NeurIPS-2019-unsupervised-scalable-representation-learning-for-multivariate-time-series-Bibtex.bib
-
-# Add a table of contents to your post.
-#   - make sure that TOC names match the actual section names
-#     for hyperlinks within the post to work correctly.
-toc:
-  - name: Abstract
-  # - name: Images and Figures
-  #   subsections:
-  #   - name: Interactive Figures
-  - name: Citations
-  - name: Footnotes
-  # - name: Code Blocks
-  # - name: Layouts
-  # - name: Other Typography?
-
-# Below is an example of injecting additional post-specific styles.
-# This is used in the 'Layouts' section of this post.
-# If you use this post as a template, delete this _styles block.
-_styles: >
-  .fake-img {
-    background: #bbb;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 12px;
-  }
-  .fake-img p {
-    font-family: monospace;
-    color: white;
-    text-align: left;
-    margin: 12px 0;
-    text-align: center;
-    font-size: 16px;
-  }
----
-
-## Abstract
-
-This research means to discover the power of transformer in dealing with time series data, for instance traffic flow, with a dynamic time window. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction  as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer with fixed-length context window may have trouble dealing with the real-time data due to the heavy computation. Hence, this research means to figure out a novel method of using a dynamic window to deal with the long sequance time-series data of transformer using traffic data, discoving a better prediction model for traffic flow.
-
-## Literature Review
-
-## Research Question
-Can dynamic window mechanisms in transformers outperform traditional LSTMs in predicting real-time conditions?
-
-
-
+<h2 id="research-question">Research Question</h2>
+<p>Can dynamic window mechanisms in transformers outperform traditional LSTMs in predicting real-time conditions?</p>
 
 <!-- ## Citations
 
@@ -100,33 +35,31 @@ It supports more than 100 languages.
 This example is in C++.
 All you have to do is wrap your code in a liquid tag:
 
-{% raw  %}
+
 {% highlight c++ linenos %}  <br/> code code code <br/> {% endhighlight %}
-{% endraw %}
+
 
 The keyword `linenos` triggers display of line numbers. You can try toggling it on or off yourself below:
 
-{% highlight c++ %}
 
-int main(int argc, char const \*argv[])
-{
-string myString;
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="err">\</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+<span class="n">string</span> <span class="n">myString</span><span class="p">;</span>
 
-    cout << "input a string: ";
-    getline(cin, myString);
-    int length = myString.length();
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"input a string: "</span><span class="p">;</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">myString</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
 
-    char charArray = new char * [length];
+    <span class="kt">char</span> <span class="n">charArray</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span> <span class="o">*</span> <span class="p">[</span><span class="n">length</span><span class="p">];</span>
 
-    charArray = myString;
-    for(int i = 0; i < length; ++i){
-        cout << charArray[i] << " ";
-    }
+    <span class="n">charArray</span> <span class="o">=</span> <span class="n">myString</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">charArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    return 0;
-}
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
 
-{% endhighlight %}
 
 
 <!-- ## Blockquotes
@@ -137,7 +70,6 @@ string myString;
 </blockquote>
 
 *** -->
-
 
 <!-- ## Layouts
 
@@ -292,3 +224,4 @@ This line is separated from the one above by two newlines, so it will be a *sepa
 
 This line is also a separate paragraph, but...
 This line is only separated by a single newline, so it's a separate line in the *same paragraph*. -->
+:ET

@@ -4,7 +4,7 @@
  <title>6.S898 Deep Learning Blogs 2023</title>
  <link href="http://0.0.0.0:8080/staging/atom.xml" rel="self"/>
  <link href="http://0.0.0.0:8080/staging/"/>
- <updated>2023-11-11T02:22:39-06:00</updated>
+ <updated>2023-11-11T02:23:17-06:00</updated>
  <id>http://0.0.0.0:8080</id>
  <author>
    <name></name>
@@ -25,103 +25,6 @@
 
 &lt;h2 id=&quot;research-question&quot;&gt;Research Question&lt;/h2&gt;
 &lt;p&gt;Can dynamic window mechanisms in transformers outperform traditional LSTMs in predicting real-time conditions?&lt;/p&gt;
-
-&lt;p&gt;???&lt;/p&gt;
-
-&lt;!-- ## Images and Figures
-
-Its generally a better idea to avoid linking to images hosted elsewhere - links can break and you
-might face losing important information in your blog post.
-To include images in your submission in this way, you must do something like the following:
-
-```markdown
-{% include figure.html path=&quot;assets/img/2022-12-01-distill-example/iclr.png&quot; class=&quot;img-fluid&quot; %}
-```
-
-which results in the following image:
-
-&lt;figure&gt;
-
-  &lt;picture&gt;
-    
-    &lt;source 
-        class=&quot;responsive-img-srcset&quot;
-        media=&quot;(max-width: 480px)&quot; 
-        srcset=&quot;/staging/assets/img/2022-12-01-distill-example/iclr-480.webp&quot;
-      /&gt;
-    &lt;source 
-        class=&quot;responsive-img-srcset&quot;
-        media=&quot;(max-width: 800px)&quot; 
-        srcset=&quot;/staging/assets/img/2022-12-01-distill-example/iclr-800.webp&quot;
-      /&gt;
-    &lt;source 
-        class=&quot;responsive-img-srcset&quot;
-        media=&quot;(max-width: 1400px)&quot; 
-        srcset=&quot;/staging/assets/img/2022-12-01-distill-example/iclr-1400.webp&quot;
-      /&gt;
-    
-
-    &lt;!-- Fallback to the original file --&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;img 
-  src=&quot;/staging/assets/img/2022-12-01-distill-example/iclr.png&quot;
-  class=&quot;img-fluid&quot;  
-  width=&quot;auto&quot; 
-  height=&quot;auto&quot; 
-   
-   
-   
-   
-   
-   
-  
-  onerror=&quot;this.onerror=null; $(&apos;.responsive-img-srcset&apos;).remove();&quot;
-/&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&amp;lt;/picture&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;lt;/figure&amp;gt;&lt;/p&gt;
-
-&lt;!-- Here&apos;s how you could embed interactive figures that have been exported as HTML files.
-Note that we will be using plotly for this demo, but anything built off of HTML should work
-(**no extra javascript is allowed!**).
-All that&apos;s required is for you to export your figure into HTML format, and make sure that the file
-exists in the `assets/html/[SUBMISSION NAME]/` directory in this repository&apos;s root directory.
-To embed it into any page, simply insert the following code anywhere into your page.
-
-```markdown
-{% include [FIGURE_NAME].html %} 
-```
-
-For example, the following code can be used to generate the figure underneath it. --&gt;
-
-&lt;!-- ```python
-import pandas as pd
-import plotly.express as px
-
-df = pd.read_csv(&apos;https://raw.githubusercontent.com/plotly/datasets/master/earthquakes-23k.csv&apos;)
-
-fig = px.density_mapbox(
-    df, lat=&apos;Latitude&apos;, lon=&apos;Longitude&apos;, z=&apos;Magnitude&apos;, radius=10,
-    center=dict(lat=0, lon=180), zoom=0, mapbox_style=&quot;stamen-terrain&quot;)
-fig.show()
-
-fig.write_html(&apos;./assets/html/2022-12-01-distill-example/plotly_demo_1.html&apos;)
-```
-
-And then include it with the following:
-
-```html
-&lt;div class=&quot;l-page&quot;&gt;
-  &lt;iframe src=&quot;{{ &apos;assets/html/2022-12-01-distill-example/plotly_demo_1.html&apos; | relative_url }}&quot; frameborder=&apos;0&apos; scrolling=&apos;no&apos; height=&quot;600px&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-```
-
-Voila!
-
-&lt;div class=&quot;l-page&quot;&gt;
-  &lt;iframe src=&quot;/staging/assets/html/2022-12-01-distill-example/plotly_demo_1.html&quot; frameborder=&apos;0&apos; scrolling=&apos;no&apos; height=&quot;600px&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt; --&gt;
 
 &lt;!-- ## Citations
 
