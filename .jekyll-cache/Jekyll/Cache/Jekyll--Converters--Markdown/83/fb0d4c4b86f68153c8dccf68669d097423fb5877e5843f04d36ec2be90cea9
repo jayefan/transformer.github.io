@@ -1,106 +1,16 @@
-I"ó1<h2 id="abstract">Abstract</h2>
+I"±-<h2 id="abstract">Abstract</h2>
 
-<p>This research means to discover the power of transformer in dealing with time series data, for instance traffic flow, with a dynamic time window. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction  as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer with fixed-length context window may have trouble dealing with the real-time data due to the heavy computation. Hence, this research means to figure out a novel method of using a dynamic window to deal with the long sequance time-series data of transformer using traffic data, discoving a better prediction model for traffic flow.</p>
+<p>This research means to discover the power of transformer in dealing with time series data, for instance traffic flow. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer may have trouble dealing with the long sequence time-series data due to the heavy computation. Hence, this research means to figure out a method to deal with this problem using traffic data, discoving a better prediction model for traffic flow. There are several potential ways to explore: periodicity capture; information distillation.</p>
 
 <h2 id="literature-review">Literature Review</h2>
+<p>The time series data processing and prediction are usually conducted with RNN and LSTM. In the case of traffic prediction, CNN and GNN are combined for efficiently capturing spatial and temporal information. And LSTM is widely used as its better performance on capturing temporal dependencies. While recent studies have propsed to replace RNNs with Transformer architecture as it is more efficient and able to capture sequantial dependency. However, the model is inapplicable when facing long sequence time data due to quadratic time complexity, high memory usage, and in- herent limitation of the encoder-decoder architecture. <d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite> (Zhou et al. 2021)</p>
+
+<p>There are notable models focsing on the less explored and challenging long-term time series forecasting(LTSF) problem, include Log- Trans (Li et al. 2019) (NeurIPS 2019), Informer (Zhou et al. 2021) (AAAI 2021 Best paper), Autoformer (Xu et al. 2021) (NeurIPS 2021), Pyraformer (Liu et al. 2021a) (ICLR 2022 Oral), Triformer (Cirstea et al. 2022) (IJCAI 2022) and the recent FEDformer (Zhou et al. 2022) (ICML 2022). <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite>(Zeng, Ailing et al. 2023)</p>
+
+<p>The Informer model applies ProbSparse self-attention mechanism to let each key to only attend to several dominant queries and then use the distilling operation to deal with the redundance. The operation privileges the superior ones with dominaitng features and make a focused self-attention feature map in the next layer, which trims the inputâ€™s time dimension.<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite>(Zhou et al. 2021) Besides, additional position encoding can help the model to understand the periodicity inherented in traffic data, which implies applying the relative or global positioin encoding interms of weeks and days. <d-cite key="https://doi.org/10.1111/tgis.12644"></d-cite> (Cai et al. 2020)</p>
 
 <h2 id="research-question">Research Question</h2>
-<p>Can dynamic window mechanisms in transformers outperform traditional LSTMs in predicting real-time conditions?</p>
-
-<!-- ## Images and Figures
-
-Its generally a better idea to avoid linking to images hosted elsewhere - links can break and you
-might face losing important information in your blog post.
-To include images in your submission in this way, you must do something like the following:
-
-```markdown
-{% include figure.html path="assets/img/2022-12-01-distill-example/iclr.png" class="img-fluid" %}
-```
-
-which results in the following image:
-
-<figure>
-
-  <picture>
-    
-    <source 
-        class="responsive-img-srcset"
-        media="(max-width: 480px)" 
-        srcset="/staging/assets/img/2022-12-01-distill-example/iclr-480.webp"
-      />
-    <source 
-        class="responsive-img-srcset"
-        media="(max-width: 800px)" 
-        srcset="/staging/assets/img/2022-12-01-distill-example/iclr-800.webp"
-      />
-    <source 
-        class="responsive-img-srcset"
-        media="(max-width: 1400px)" 
-        srcset="/staging/assets/img/2022-12-01-distill-example/iclr-1400.webp"
-      />
-    
-
-    <!-- Fallback to the original file -->
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;img 
-  src="/staging/assets/img/2022-12-01-distill-example/iclr.png"
-  class="img-fluid"  
-  width="auto" 
-  height="auto" 
-   
-   
-   
-   
-   
-   
-  
-  onerror="this.onerror=null; $('.responsive-img-srcset').remove();"
-/&gt;
-</code></pre></div></div>
-
-<p>&lt;/picture&gt;</p>
-
-<p>&lt;/figure&gt;</p>
-
-<!-- Here's how you could embed interactive figures that have been exported as HTML files.
-Note that we will be using plotly for this demo, but anything built off of HTML should work
-(**no extra javascript is allowed!**).
-All that's required is for you to export your figure into HTML format, and make sure that the file
-exists in the `assets/html/[SUBMISSION NAME]/` directory in this repository's root directory.
-To embed it into any page, simply insert the following code anywhere into your page.
-
-```markdown
-{% include [FIGURE_NAME].html %} 
-```
-
-For example, the following code can be used to generate the figure underneath it. -->
-
-<!-- ```python
-import pandas as pd
-import plotly.express as px
-
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/earthquakes-23k.csv')
-
-fig = px.density_mapbox(
-    df, lat='Latitude', lon='Longitude', z='Magnitude', radius=10,
-    center=dict(lat=0, lon=180), zoom=0, mapbox_style="stamen-terrain")
-fig.show()
-
-fig.write_html('./assets/html/2022-12-01-distill-example/plotly_demo_1.html')
-```
-
-And then include it with the following:
-
-```html
-<div class="l-page">
-  <iframe src="{{ 'assets/html/2022-12-01-distill-example/plotly_demo_1.html' | relative_url }}" frameborder='0' scrolling='no' height="600px" width="100%"></iframe>
-</div>
-```
-
-Voila!
-
-<div class="l-page">
-  <iframe src="/staging/assets/html/2022-12-01-distill-example/plotly_demo_1.html" frameborder='0' scrolling='no' height="600px" width="100%"></iframe>
-</div> -->
+<p>How Transformer deals with long sequance time series data?</p>
 
 <!-- ## Citations
 
@@ -155,8 +65,7 @@ The keyword `linenos` triggers display of line numbers. You can try toggling it 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<!-- ???? -->
-<p>*** â€“&gt;</p>
+
 
 <!-- ## Blockquotes
 
