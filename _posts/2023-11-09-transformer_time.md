@@ -1,7 +1,7 @@
 ---
 layout: distill
-title: Transformer with dynamic window for time series data
-description: A project for MIT 2023 Fall 6.S898 Deep Learning about exploration of transformer.
+title: Transformer for long sequence time series data
+description: A project for MIT 2023 Fall 6.S898 Deep Learning about the adaptation of transformer in long sequance time series data, in the case of traffic prediction.
 date: 2023-11-09
 htmlwidgets: true
 
@@ -24,7 +24,7 @@ authors:
   #     name: IAS, Princeton
 
 # must be the exact same name as your blogpost
-bibliography:  2023-11-09-transformer_moving_window.bib
+bibliography:  2023-11-09-transformer_time.bib
 
 # Add a table of contents to your post.
 #   - make sure that TOC names match the actual section names
@@ -62,14 +62,17 @@ _styles: >
 
 ## Abstract
 
-This research means to discover the power of transformer in dealing with time series data, for instance traffic flow, with a dynamic time window. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction  as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer with fixed-length context window may have trouble dealing with the real-time data due to the heavy computation. Hence, this research means to figure out a novel method of using a dynamic window to deal with the long sequance time-series data of transformer using traffic data, discoving a better prediction model for traffic flow.
+This research means to discover the power of transformer in dealing with time series data, for instance traffic flow. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer may have trouble dealing with the long sequence time-series data due to the heavy computation. Hence, this research means to figure out a method to deal with this problem using traffic data, discoving a better prediction model for traffic flow. There are several potential ways to explore: periodicity capture; information distillation.
 
 ## Literature Review
-There are notable models focsing on the less explored and challenging long-term time series forecasting(LTSF) problem, include Log- Trans (Li et al. 2019) (NeurIPS 2019), Informer (Zhou et al. 2021) (AAAI 2021 Best paper), Autoformer (Xu et al. 2021) (NeurIPS 2021), Pyraformer (Liu et al. 2021a) (ICLR 2022 Oral), Triformer (Cirstea et al. 2022) (IJCAI 2022) and the recent FEDformer (Zhou et al. 2022) (ICML 2022). <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite>
+The time series data processing and prediction are usually conducted with RNN and LSTM. In the case of traffic prediction, CNN and GNN are combined for efficiently capturing spatial and temporal information. And LSTM is widely used as its better performance on capturing temporal dependencies. While recent studies have propsed to replace RNNs with Transformer architecture as it is more efficient and able to capture sequantial dependency. However, the model is inapplicable when facing long sequence time data due to quadratic time complexity, high memory usage, and in- herent limitation of the encoder-decoder architecture. <d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite> (Zhou et al. 2021)
+
+There are notable models focsing on the less explored and challenging long-term time series forecasting(LTSF) problem, include Log- Trans (Li et al. 2019) (NeurIPS 2019), Informer (Zhou et al. 2021) (AAAI 2021 Best paper), Autoformer (Xu et al. 2021) (NeurIPS 2021), Pyraformer (Liu et al. 2021a) (ICLR 2022 Oral), Triformer (Cirstea et al. 2022) (IJCAI 2022) and the recent FEDformer (Zhou et al. 2022) (ICML 2022). <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite>(Zeng, Ailing et al. 2023)
+
+The Informer model applies ProbSparse self-attention mechanism to let each key to only attend to several dominant queries and then use the distilling operation to deal with the redundance. The operation privileges the superior ones with dominaitng features and make a focused self-attention feature map in the next layer, which trims the input's time dimension.<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite>(Zhou et al. 2021) Besides, additional position encoding can help the model to understand the periodicity inherented in traffic data, which implies applying the relative or global positioin encoding interms of weeks and days. <d-cite key="https://doi.org/10.1111/tgis.12644"></d-cite> (Cai et al. 2020)
 
 ## Research Question
-Can dynamic window mechanisms in transformers outperform traditional LSTMs in predicting real-time conditions?
-
+How Transformer deals with long sequance time series data? 
 
 
 
