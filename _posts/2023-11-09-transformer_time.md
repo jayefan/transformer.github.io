@@ -71,8 +71,10 @@ There are notable models focsing on the less explored and challenging long-term 
 
 The Informer model applies ProbSparse self-attention mechanism to let each key to only attend to several dominant queries and then use the distilling operation to deal with the redundance. The operation privileges the superior ones with dominaitng features and make a focused self-attention feature map in the next layer, which trims the input's time dimension.<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite>(Zhou et al. 2021) Besides, additional position encoding can help the model to understand the periodicity inherented in traffic data, which implies applying the relative or global positioin encoding interms of weeks and days. <d-cite key="https://doi.org/10.1111/tgis.12644"></d-cite> (Cai et al. 2020)
 
+Beside, a combination of various methods or framework may help us to benefit from the advantages of different models. The transformer-based framwork for multivariate time series representation lerning is proposed by George et al.  <d-cite key="DBLP:journals/corr/abs-2010-02803"></d-cite> The Spatial-Temporal Graph Neural Networks(STGNNs) is another widely used model in traffic prediction, which only consider short-term data. The STEP model is propsde to enhance STGNN with a scalable time series pre-training mode. In the pre-training stage. They split very long-term time series into segments and feed them into TSFormer, which is trained via the masked autoencoding strategy. And then in the forecasting stage. They enhance the downstream STGNN based on the segment-level representations of the pre-trained TSFormer.<d-cite key="10.1145/3534678.3539396"></d-cite>
+
 ## Research Question
-How Transformer deals with long sequance time series data? 
+How does Transformer deal with long sequance time series data? 
 
 
 
