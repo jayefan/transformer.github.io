@@ -64,18 +64,27 @@ _styles: >
 
 This research means to discover the power of transformer in dealing with time series data, for instance traffic flow. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer may have trouble dealing with the long sequence time-series data due to the heavy computation. Hence, this research means to figure out a method to deal with this problem using traffic data, discoving a better prediction model for traffic flow. There are several potential ways to explore: periodicity capture; information distillation.
 
-## Literature Review
-The time series data processing and prediction are usually conducted with RNN and LSTM. In the case of traffic prediction, CNN and GNN are combined for efficiently capturing spatial and temporal information. And LSTM is widely used as its better performance on capturing temporal dependencies. While recent studies have propsed to replace RNNs with Transformer architecture as it is more efficient and able to capture sequantial dependency. However, the model is inapplicable when facing long sequence time data due to quadratic time complexity, high memory usage, and inherent limitation of the encoder-decoder architecture. <d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite> (Zhou et al. 2021)
+## Introduction
+The time series data processing and prediction are usually conducted with RNN and LSTM. In the case of traffic prediction, CNN and GNN are combined for efficiently capturing spatial and temporal information. And LSTM is widely used as its better performance on capturing temporal dependencies. While recent studies have propsed to replace RNNs with Transformer architecture as it is more efficient and able to capture sequantial dependencies. However, the model is inapplicable when facing long sequence time data due to quadratic time complexity, high memory usage, and inherent limitation of the encoder-decoder architecture. <d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite> 
 
-There are notable models focsing on the less explored and challenging long-term time series forecasting(LTSF) problem, include Log- Trans (Li et al. 2019) (NeurIPS 2019), Informer (Zhou et al. 2021) (AAAI 2021 Best paper), Autoformer (Xu et al. 2021) (NeurIPS 2021), Pyraformer (Liu et al. 2021a) (ICLR 2022 Oral), Triformer (Cirstea et al. 2022) (IJCAI 2022) and the recent FEDformer (Zhou et al. 2022) (ICML 2022). <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite>(Zeng, Ailing et al. 2023)
+There are notable models focsing on the less explored and challenging long-term time series forecasting(LTSF) problem, include Log- Trans, Informer, Autoformer, Pyraformer, Triformer and the recent FEDformer. <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite>(Zeng, Ailing et al. 2023) The Informer model applies ProbSparse self-attention mechanism to let each key to only attend to several dominant queries and then use the distilling operation to deal with the redundance. The operation privileges the superior ones with dominaitng features and make a focused self-attention feature map in the next layer, which trims the input's time dimension.<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite>Besides, additional position encoding can help the model to understand the periodicity inherented in traffic data, which implies applying the relative or global positioin encoding interms of weeks and days. <d-cite key="https://doi.org/10.1111/tgis.12644"></d-cite>
 
-The Informer model applies ProbSparse self-attention mechanism to let each key to only attend to several dominant queries and then use the distilling operation to deal with the redundance. The operation privileges the superior ones with dominaitng features and make a focused self-attention feature map in the next layer, which trims the input's time dimension.<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite>(Zhou et al. 2021) Besides, additional position encoding can help the model to understand the periodicity inherented in traffic data, which implies applying the relative or global positioin encoding interms of weeks and days. <d-cite key="https://doi.org/10.1111/tgis.12644"></d-cite> (Cai et al. 2020)
 
-Beside, a combination of various methods or framework may help us to benefit from the advantages of different models. The transformer-based framwork for multivariate time series representation lerning is proposed by George et al.  <d-cite key="DBLP:journals/corr/abs-2010-02803"></d-cite> The Spatial-Temporal Graph Neural Networks(STGNNs) is another widely used model in traffic prediction, which only consider short-term data. The STEP model is propsde to enhance STGNN with a scalable time series pre-training mode. In the pre-training stage. They split very long-term time series into segments and feed them into TSFormer, which is trained via the masked autoencoding strategy. And then in the forecasting stage. They enhance the downstream STGNN based on the segment-level representations of the pre-trained TSFormer.<d-cite key="10.1145/3534678.3539396"></d-cite>
 
-## Research Question
-How does Transformer deal with long sequance time series data? 
+<!-- ## Research Question
+How does Transformer deal with long sequance time series data?  -->
 
+## Methodology
+
+## Experiment
+### Dataset
+
+## Result
+
+## Discussion and Analysis
+
+
+A combination of various methods or framework may help us to benefit from the advantages of different models. The transformer-based framwork for multivariate time series representation lerning is proposed by George et al.  <d-cite key="DBLP:journals/corr/abs-2010-02803"></d-cite> The Spatial-Temporal Graph Neural Networks(STGNNs) is another widely used model in traffic prediction, which only consider short-term data. The STEP model is propsde to enhance STGNN with a scalable time series pre-training mode. In the pre-training stage. They split very long-term time series into segments and feed them into TSFormer, which is trained via the masked autoencoding strategy. And then in the forecasting stage. They enhance the downstream STGNN based on the segment-level representations of the pre-trained TSFormer.<d-cite key="10.1145/3534678.3539396"></d-cite>
 
 
 <!-- ## Citations
