@@ -1,4 +1,4 @@
-<h2 id="abstract">Abstract</h2>
+I"”D<h2 id="abstract">Abstract</h2>
 <p>This research means to discover the power of transformer in dealing with time series data, for instance traffic flow. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer may have trouble dealing with the long sequence time-series data due to the heavy computation. This research compares differnt methods that make use of the information redundancy and their combination from the perspective of computational efficiency and prediction accuracy.</p>
 
 <h2 id="introduction">Introduction</h2>
@@ -257,3 +257,4 @@ This line is separated from the one above by two newlines, so it will be a *sepa
 
 This line is also a separate paragraph, but...
 This line is only separated by a single newline, so it's a separate line in the *same paragraph*. -->
+:ET

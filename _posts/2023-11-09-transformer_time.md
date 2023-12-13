@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: Transformer for long sequence time series data
-description: A project for MIT 2023 Fall 6.S898 Deep Learning about the adaptation of transformer in long sequance time series data, in the case of traffic prediction.
+description: A project for MIT 2023 Fall 6.S898 Deep Learning about the adaptation of transformer in long sequance time series data,  in the case of traffic prediction.
 date: 2023-12-12
 htmlwidgets: true
 
@@ -24,7 +24,7 @@ authors:
   #     name: IAS, Princeton
 
 # must be the exact same name as your blogpost
-bibliography:  2023-11-09-transformer_time.bib
+bibliography: 2023-11-09-transformer_time.bib
 
 # Add a table of contents to your post.
 #   - make sure that TOC names match the actual section names
@@ -84,10 +84,10 @@ Distillation. The Informer model applies ProbSparse self-attention mechanism to 
 Patching. As proposed in ViT<d-cite key="DBLP:journals/corr/abs-2010-11929"></d-cite>, the patch embeddings are small segments of an input image, which transfer the 2D image to 1D sequence. Each patch contains partial information of the image and additional positional embedding helps the transformer to understand the order of a series of patch embeddings. In the case of time series, though it is 1D sequence that can be received by standard transformer, the self-attention may not efficiently capture the long dependencies and cause heavy computation. Hence, dealing with time-series data, patching is used to understand the temporal correlation between data in a time-step interval. Unlike point-wise input tokens, it enhances the locality and captures the comprehensive semantic information in different time steps by aggregating times steps into subseries-level patches. <d-cite key="nie2023time"></d-cite> 
 
 ## Experiment
-### Dataset
+<!-- ### Dataset -->
 We used a multivariate traffic<d-footnote>https://pems.dot.ca.gov/</d-footnote> dataset that records the road occupancy rates from different sensors on San Francisco freeways. We selected first 100 censors as our experiment dataset. 
 
-### Experimental Settings
+<!-- ### Experimental Settings -->
 We choose two models, Informer<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite>  and PatchTST<d-cite key="nie2023time"></d-cite> to test the influence of distillation, positional embeddings, patching and data decomposition. For the implementation of Informer and PatchTST, we used the code provided by the authors.<d-footnote>https://github.com/yuqinie98/patchtst</d-footnote>. We mean to compare different methods that aim to efficiently explore on long sequence data, considering both efficiency and accuracy. This leads to a discussion about the trade off when using these models to solve real life cases and the possibility of improving or combing different methods.
 
 1. Compare efficieny and accuracy of distillation and patching. All the models are following the same setup, using 10 epochs and batch size 12 with input length [96,192,336,720] and predictioin length [96,192,336,720]. The performance and cost time is listed in the table 2. 

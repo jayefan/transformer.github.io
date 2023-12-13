@@ -4,7 +4,7 @@
  <title>6.S898 Deep Learning Blogs 2023</title>
  <link href="http://0.0.0.0:8080/staging/atom.xml" rel="self"/>
  <link href="http://0.0.0.0:8080/staging/"/>
- <updated>2023-12-12T21:26:15-06:00</updated>
+ <updated>2023-12-12T21:35:22-06:00</updated>
  <id>http://0.0.0.0:8080</id>
  <author>
    <name></name>
@@ -15,7 +15,7 @@
  <entry>
    <title></title>
    <link href="http://0.0.0.0:8080/blog/2023/2023-11-09-transformer_time/"/>
-   <updated>2023-12-12T21:26:15-06:00</updated>
+   <updated>2023-12-12T21:35:22-06:00</updated>
    <id>http://0.0.0.0:8080/staging/blog/2023/2023-11-09-transformer_time</id>
    <content type="html">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;This research means to discover the power of transformer in dealing with time series data, for instance traffic flow. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer may have trouble dealing with the long sequence time-series data due to the heavy computation. This research compares differnt methods that make use of the information redundancy and their combination from the perspective of computational efficiency and prediction accuracy.&lt;/p&gt;
@@ -39,10 +39,10 @@
 &lt;p&gt;Patching. As proposed in ViT&lt;d-cite key=&quot;DBLP:journals/corr/abs-2010-11929&quot;&gt;&lt;/d-cite&gt;, the patch embeddings are small segments of an input image, which transfer the 2D image to 1D sequence. Each patch contains partial information of the image and additional positional embedding helps the transformer to understand the order of a series of patch embeddings. In the case of time series, though it is 1D sequence that can be received by standard transformer, the self-attention may not efficiently capture the long dependencies and cause heavy computation. Hence, dealing with time-series data, patching is used to understand the temporal correlation between data in a time-step interval. Unlike point-wise input tokens, it enhances the locality and captures the comprehensive semantic information in different time steps by aggregating times steps into subseries-level patches. &lt;d-cite key=&quot;nie2023time&quot;&gt;&lt;/d-cite&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;experiment&quot;&gt;Experiment&lt;/h2&gt;
-&lt;h3 id=&quot;dataset&quot;&gt;Dataset&lt;/h3&gt;
+&lt;!-- ### Dataset --&gt;
 &lt;p&gt;We used a multivariate traffic&lt;d-footnote&gt;https://pems.dot.ca.gov/&lt;/d-footnote&gt; dataset that records the road occupancy rates from different sensors on San Francisco freeways. We selected first 100 censors as our experiment dataset.&lt;/p&gt;
 
-&lt;h3 id=&quot;experimental-settings&quot;&gt;Experimental Settings&lt;/h3&gt;
+&lt;!-- ### Experimental Settings --&gt;
 &lt;p&gt;We choose two models, Informer&lt;d-cite key=&quot;Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021&quot;&gt;&lt;/d-cite&gt;  and PatchTST&lt;d-cite key=&quot;nie2023time&quot;&gt;&lt;/d-cite&gt; to test the influence of distillation, positional embeddings, patching and data decomposition. For the implementation of Informer and PatchTST, we used the code provided by the authors.&lt;d-footnote&gt;https://github.com/yuqinie98/patchtst&lt;/d-footnote&gt;. We mean to compare different methods that aim to efficiently explore on long sequence data, considering both efficiency and accuracy. This leads to a discussion about the trade off when using these models to solve real life cases and the possibility of improving or combing different methods.&lt;/p&gt;
 
 &lt;ol&gt;
