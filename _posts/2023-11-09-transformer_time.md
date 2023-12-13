@@ -34,11 +34,13 @@ toc:
   # - name: Images and Figures
   #   subsections:
   #   - name: Interactive Figures
-  - name: Literature Review
-  - name: Research Question
-  - name: Problem Formulation
+  - name: Introduction
+  - name: Methodology
   - name: Experiments
-  - name: Conclusion and futrue work
+    subsections: Dataset
+    - name: Interactive Figures
+  - name: Result
+  - name: Conclusion and Discussion
 
 # Below is an example of injecting additional post-specific styles.
 # This is used in the 'Layouts' section of this post.
@@ -67,23 +69,26 @@ This research means to discover the power of transformer in dealing with time se
 
 The time series data processing and prediction are usually conducted with RNN and LSTM. In the case of traffic prediction, CNN and GNN are combined for efficiently capturing spatial and temporal information. And LSTM is widely used as its better performance on capturing temporal dependencies. While recent studies have propsed to replace RNNs with Transformer architecture as it is more efficient and able to capture sequantial dependencies. However, the model is inapplicable when facing long sequence time-series data due to quadratic time complexity, high memory usage, and inherent limitation of the encoder-decoder architecture. <d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite> 
 
-MAE has been applied to various types of data and problems, including text(BERT)<d-cite key="devlin2019bert"></d-cite>  and image<d-cite key="He_2022_CVPR"></d-cite>. However, it has not been widely discussed on traffic data. The masking ratio in MAE is related to the information redundancy of the data. Natural images are more information-redundant than languages and thus the optimal masking ratio is higher. BERT<d-cite key="devlin2019bert"></d-cite> uses a masking ratio of 15\% for language, MAE<d-cite key="He_2022_CVPR"></d-cite> uses 75\% for image and the optimal ratio for video is up to 90\%.<d-cite key="feichtenhofer2022masked"></d-cite> Traffic data is potentially redundant. It contains temporal and spatial information so that neighbor sensors can provide extra information in addition to temporal consistency. We inducted that the optimal ratio for traffic data should be located between image and video. As it has multidimensional information than image and the speed captured by sensors is not as consistent as the frames in videos.
+Not all time series are predictable, the ones that is feasible to be better forecasted should contain cyclic or periodic patterns. <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite> It indicates that there are redundant information in the long sequence data. The coundary of the redundancy can be measured by the optimal masking ratio of using MAE to process the dataset. Natural images are more information-redundant than languages and thus the optimal masking ratio is higher. BERT<d-cite key="devlin2019bert"></d-cite> uses a masking ratio of 15% for language, MAE<d-cite key="He_2022_CVPR"></d-cite> uses 75% for image and the optimal ratio for video is up to 90%.<d-cite key="feichtenhofer2022masked"></d-cite> Traffic data is potentially redundant. It contains temporal and spatial information so that neighbor sensors can provide extra information in addition to temporal consistency. We inducted that the optimal ratio for traffic data should be located between image and video. As it has multidimensional information than image and the speed captured by sensors is not as consistent as the frames in videos. We use the GRIN<d-cite key="cini2022filling"></d-cite> model to mask the inputdata using Metr_LA dataset to test the redundancy of traffic data. The results show that it is tolerant when the masking ratio is lower than 90%. Then there is the possibility of using distilling operation to compress information, reducing computational requirement and memory usage. Similar to traffic data, most of the time series data are multivariate.
 
+(table)
 ## Methodology
-The information redundancy leads to the common solutions of using transformer to deal with long sequence time-series forecasting(LSTF) problems, where models shift the attention on valuable data by increasing the weight.  
+The information redundancy leads to the common solutions of using transformer to deal with long sequence time-series forecasting(LSTF) problems, where models focus more on valuable datapoints to extract time-series features.
 
 There are notable models focsing on the less explored and challenging long-term time series forecasting(LTSF) problem, include Log- Trans, Informer, Autoformer, Pyraformer, Triformer and the recent FEDformer. <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite> The Informer model applies ProbSparse self-attention mechanism to let each key to only attend to several dominant queries and then use the distilling operation to deal with the redundance. The operation privileges the superior ones with dominaitng features and make a focused self-attention feature map in the next layer, which trims the input's time dimension.<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite> Besides, additional position encoding can help the model to understand the periodicity inherented in traffic data, which implies applying the relative or global positioin encoding interms of weeks and days. <d-cite key="https://doi.org/10.1111/tgis.12644"></d-cite>
 
+Various methods introduce time-series features in differnt ways for prtformance or efficiency improvements. 
+
 
 ## Experiment
-
+For the implementation of Informer and PatchTST, we used the code provided by the authors.<d-footnote>https://github.com/yuqinie98/patchtst</d-footnote>.
 
 ### Dataset
-We used a multivariate traffic( https://pems.dot.ca.gov/) dataset records the road occupancy rates from different sensors on San Francisco freeways. We selected first 100 censors as our experiment dataset. 
+We used a multivariate traffic<d-footnote>https://pems.dot.ca.gov/</d-footnote> dataset records the road occupancy rates from different sensors on San Francisco freeways. We selected first 100 censors as our experiment dataset. 
 
 ## Result
 
-## Discussion and Analysis
+## Conclusion and Discussion
 
 
 In addition to transformer architecture, a combination of various methods or framework may help us to benefit from the advantages of different models. The transformer-based framwork for multivariate time series representation lerning is proposed by George et al.  <d-cite key="DBLP:journals/corr/abs-2010-02803"></d-cite> The Spatial-Temporal Graph Neural Networks(STGNNs) is another widely used model in traffic prediction, which only consider short-term data. The STEP model is propsde to enhance STGNN with a scalable time series pre-training mode. In the pre-training stage. They split very long-term time series into segments and feed them into TSFormer, which is trained via the masked autoencoding strategy. And then in the forecasting stage. They enhance the downstream STGNN based on the segment-level representations of the pre-trained TSFormer.<d-cite key="10.1145/3534678.3539396"></d-cite>
