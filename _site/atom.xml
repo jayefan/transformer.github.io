@@ -4,7 +4,7 @@
  <title>6.S898 Deep Learning Blogs 2023</title>
  <link href="http://0.0.0.0:8080/staging/atom.xml" rel="self"/>
  <link href="http://0.0.0.0:8080/staging/"/>
- <updated>2023-12-12T22:53:03-06:00</updated>
+ <updated>2023-12-12T22:56:35-06:00</updated>
  <id>http://0.0.0.0:8080</id>
  <author>
    <name></name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>A Comparative Study on Long Sequence Time-Series Data of transformer on long sequence time series data</title>
+   <title>A Comparative Study of transformer on long sequence time series data</title>
    <link href="http://0.0.0.0:8080/blog/2023/transformer_time/"/>
    <updated>2023-12-12T00:00:00-06:00</updated>
    <id>http://0.0.0.0:8080/staging/blog/2023/transformer_time</id>
