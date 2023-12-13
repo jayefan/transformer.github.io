@@ -1,0 +1,190 @@
+I"�#<p><br /></p>
+<p align="center">
+  <img src="http://0.0.0.0:8080/public/images/2021-09-01-sample-submission/ICLR-logo.png" width="50%" alt="ICLR Logo" />
+</p>
+
+<h2 id="important-information">Important Information</h2>
+
+<ul>
+  <li>The track has concluded and accepted blogposts are viewable <a href="http://0.0.0.0:8080/blog">here</a>!</li>
+  <li>We’ve released a video talking about this track in more detail</li>
+</ul>
+
+<p>We would like to thank everyone who took part in this experiment and for making it a success!</p>
+
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/pDgvYpRfiJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></p>
+
+<h2 id="contents">Contents</h2>
+
+<ul>
+  <li><a href="#accepted-posts">Accepted Posts</a></li>
+  <li><a href="#motivation">Motivation</a></li>
+  <li><a href="#submissions">Submissions</a></li>
+  <li><a href="#organizers">Organizers</a></li>
+</ul>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>The Machine Learning community is currently experiencing a
+<a href="https://neuripsconf.medium.com/designing-the-reproducibility-program-for-neurips-2020-7fcccaa5c6ad">reproducibility crisis</a>
+and a reviewing crisis <a href="#Litt">[Littman, 2021]</a>. Because of the highly competitive and noisy
+reviewing process of ML conferences <a href="#Tran">[Tran et al., 2020]</a>, researchers have an incentive to
+oversell their results, slowing down the progress and diminishing the
+integrity of the scientific community. Moreover with the growing number
+of papers published and submitted at the main ML conferences <a href="#Lin">[Lin et al., 2020]</a>, it has
+become more challenging to keep track of the latest advances in the
+field.</p>
+
+<p>Blog posts are becoming an increasingly popular and useful way to talk
+about science <a href="#Brow">[Brown and Woolston, 2018]</a>.
+They offer substantial value to the scientific community
+by providing a flexible platform to foster open, human, and transparent
+discussions about new insights or limitations of a scientific
+publication. However, because they are not as recognized as standard
+scientific publications, only a minority of researchers manage to
+maintain an active blog and get visibility for their efforts. Many are
+well-established researchers (<a href="https://francisbach.com/">Francis Bach</a>,
+<a href="https://www.argmin.net/">Ben Recht</a>, <a href="https://www.inference.vc/">Ferenc
+Huszár</a>, <a href="https://lilianweng.github.io/lil-log/">Lilian
+Weng</a>) or big corporations that
+leverage entire teams of graphic designers designer and writers to
+polish their blogs (<a href="https://ai.facebook.com/blog/?page=1">Facebook AI</a>,
+<a href="https://ai.googleblog.com/">Google AI</a>,
+<a href="https://deepmind.com/blog">DeepMind</a>,
+<a href="https://openai.com/blog/">OpenAI</a>). As a result, the incentives for
+writing scientific blog posts are largely personal; it is unreasonable
+to expect a significant portion of the machine learning community to
+contribute to such an initiative when everyone is trying to establish
+themselves through publications.</p>
+
+<h3 id="a-blog-post-conference-track">A Blog Post Conference Track</h3>
+
+<p>Our goal is to create a formal call for blog posts at ICLR to
+incentivize and reward researchers to review past work and summarize the
+outcomes, develop new intuitions, or highlight some shortcomings. A very
+influential initiative of this kind happened after the second world war
+in France. Because of the lack of up-to-date textbooks, a collective of
+mathematicians under the pseudonym Nicolas Bourbaki <a href="#Halm">[Halmos 1957]</a>, decided to start a
+series of textbooks about the foundations of mathematics <a href="#Bour">[Bourbaki, 1939]</a>.
+In the same vein, we aim at providing a new way to summarize scientific knowledge in
+the ML community.</p>
+
+<p>Due to the large diversity of topics that can be discussed in a blog
+post, we decided to restrict the range of topics for this call for blog
+posts. We identified that the blog posts that would bring to most value
+to the community and the conference would be posts that distill and
+discuss <em>previously published papers</em>.</p>
+
+<h3 id="a-call-for-blog-posts-discussing-work-previously-published-at-iclr">A call for blog posts discussing work previously published at ICLR</h3>
+
+<p>The format and process for this blog post track is as follows:</p>
+
+<ul>
+  <li>
+    <p>Write a post about a paper previously published at ICLR, with the
+constraint that one cannot write a blog post on work that they have
+a conflict of interest with. This implies that one cannot review
+their own work, or work originating from their institution or
+company. We want to foster productive discussion about <em>ideas</em>, and
+prevent posts that intentionally aim to help or hurt individuals or
+institutions.</p>
+  </li>
+  <li>
+    <p>Blogs will be peer-reviewed (double-blind, see
+Section <a href="#sub:sub_process" data-reference-type="ref" data-reference="sub:sub_process">2.5</a>)
+for quality and novelty of the content: clarity and pedagogy of the
+exposition, new theoretical or practical insights,
+reproduction/extension of experiments, etc.</p>
+  </li>
+  <li>
+    <p>The posts will be published under a unified template (see
+Section <a href="#sub:sub_format" data-reference-type="ref" data-reference="sub:sub_format">2.4</a>
+and
+Section <a href="#sub:sub_process" data-reference-type="ref" data-reference="sub:sub_process">2.5</a>)
+and hosted on the conference website or our own Github page.</p>
+  </li>
+</ul>
+
+<h2 id="submissions">Submissions</h2>
+
+<p><strong>Note: The track has concluded and we are not accepting any more submissions!</strong></p>
+
+<p>Our goal is to avoid heavily engineered, professionally-made
+blog-posts—Such as the “100+ hours” mentioned as a standard by the <a href="https://distill.pub/journal/">Distill
+  guidelines</a>—to entice ideas and clear writing rather than dynamic
+visualizations or embedded javascript engines.</p>
+
+<p>As a result, we restrict submissions to the Markdown format. We believe
+this is a good trade-off between complexity and flexibility. Markdown
+enables users to easily embed media such as images, gifs, audio, and
+video as well as write mathematical equations using MathJax, without
+requiring users to know how to create HTML web pages. This (mostly)
+static format is also fairly portable; users can download the blog post
+without much effort for offline reading or archival purposes. More
+importantly, this format can be easily hosted and maintained through
+GitHub.</p>
+
+<blockquote>
+  <p>Please checkout the <a href="submitting">submitting</a> section for a detailed overview on the 
+process of creating and submitting a blog post.</p>
+</blockquote>
+
+<h2 id="organizers">Organizers</h2>
+
+<p> </p>
+
+<ul class="image-list-small">
+  <li>
+    <a style="background-image: url(http://0.0.0.0:8080/public/images/organizers/gg.jpg);"></a>
+    <div class="details">
+      <h3>Gauthier Gidel</h3>
+      <p class="image-author">gidelgau [ at ] mila.quebec</p>
+    </div>
+  </li>
+  <li>
+    <a style="background-image: url(http://0.0.0.0:8080/public/images/organizers/cg.jpg);"></a>
+    <div class="details">
+      <h3>Charlier Gauthier</h3>
+      <p class="image-author">charlie.gauthier [ at ] umontreal.ca</p>
+    </div>
+  </li>
+  <li>
+    <a style="background-image: url(http://0.0.0.0:8080/public/images/organizers/dd.jpg);"></a>
+    <div class="details">
+      <h3>David Dobre</h3>
+      <p class="image-author">david-a.dobre [ at ] mila.quebec</p>
+    </div>
+  </li>
+  <li>
+    <a style="background-image: url('http://0.0.0.0:8080/public/images/organizers/sb.jpg');"></a>
+    <div class="details">
+      <h3>Sébastien Bubeck</h3>
+      <p class="image-author">sebubeck [ at ] microsoft.com</p>
+    </div>
+  </li>
+  <li>
+    <a style="background-image: url('http://0.0.0.0:8080/public/images/organizers/cv.jpg');"></a>
+    <div class="details">
+      <h3>Claire Vernade</h3>
+      <p class="image-author">vernade [ at ] deepmind.com</p>
+    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p><a name="Litt">Michael L Littman. Collusion rings threaten the integrity of computer science research. Communications of the ACM, 2021.</a></p>
+
+<p><a name="Tran">David Tran, Alex Valtchanov, Keshav Ganapathy, Raymond Feng, Eric Slud, Micah Goldblum, and Tom Goldstein. An open review of openreview: A critical analysis of the machine learning conference review process. arXiv, 2020. </a></p>
+
+<p><a name="Lin">Hsuan-Tien Lin, Maria-Florina Balcan, Raia Hadsell, and Marc’Aurelio Ranzato. What we learned from neurips2020 reviewing process. Medium https://medium.com/@NeurIPSConf/what-we-learned-from-neurips-2020-reviewing-process-e24549eea38f, 2020. </a></p>
+
+<p><a name="Brow">Eryn Brown and Chris Woolston. Why science blogging still matters. Nature, 2018.</a></p>
+
+<p><a name="Halm">Paul R Halmos. Nicolas bourbaki. Scientific American, 1957.<a></a></a></p>
+
+<p><a name="Bour">Nicolas Bourbaki. Elements of mathematics. Éditions Hermann, 1939.</a></p>
+
+:ET
