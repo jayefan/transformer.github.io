@@ -4,7 +4,7 @@
  <title>6.S898 Deep Learning Blogs 2023</title>
  <link href="http://0.0.0.0:8080/staging/atom.xml" rel="self"/>
  <link href="http://0.0.0.0:8080/staging/"/>
- <updated>2023-12-12T21:20:24-06:00</updated>
+ <updated>2023-12-12T21:25:53-06:00</updated>
  <id>http://0.0.0.0:8080</id>
  <author>
    <name></name>
@@ -15,7 +15,7 @@
  <entry>
    <title></title>
    <link href="http://0.0.0.0:8080/blog/2023/2023-11-09-transformer_time/"/>
-   <updated>2023-12-12T21:20:24-06:00</updated>
+   <updated>2023-12-12T21:25:53-06:00</updated>
    <id>http://0.0.0.0:8080/staging/blog/2023/2023-11-09-transformer_time</id>
    <content type="html">&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;This research means to discover the power of transformer in dealing with time series data, for instance traffic flow. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer may have trouble dealing with the long sequence time-series data due to the heavy computation. This research compares differnt methods that make use of the information redundancy and their combination from the perspective of computational efficiency and prediction accuracy.&lt;/p&gt;

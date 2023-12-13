@@ -2,7 +2,7 @@
 layout: distill
 title: Transformer for long sequence time series data
 description: A project for MIT 2023 Fall 6.S898 Deep Learning about the adaptation of transformer in long sequance time series data, in the case of traffic prediction.
-date: 2023-12-12
+date: 2023-11-09
 htmlwidgets: true
 
 # Anonymize when submitting
