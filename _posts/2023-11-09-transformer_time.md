@@ -2,7 +2,7 @@
 layout: distill
 title: Transformer for long sequence time series data
 description: A project for MIT 2023 Fall 6.S898 Deep Learning about the adaptation of transformer in long sequance time series data, in the case of traffic prediction.
-date: 2023-11-09
+date: 2023-12-12
 htmlwidgets: true
 
 # Anonymize when submitting
@@ -63,7 +63,7 @@ _styles: >
 ---
 
 ## Abstract
-This research means to discover the power of transformer in dealing with time series data, for instance traffic flow. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer may have trouble dealing with the long sequence time-series data due to the heavy computation. This research try to compare differnt methods and their combination from the perspective of computational efficiency and prediction accuracy. 
+This research means to discover the power of transformer in dealing with time series data, for instance traffic flow. Transformer with multihead self-attention mechanism is well-suited for the task like traffic prediction as it can weight the importance of various aspects in the traffic data sequence, capturing both long-term dependencies and short-term patterns. Compared to the LSTM, the transformer owns the power of parallelization, which is more efficient when facing a large dataset. And it can capture the dependencies better with long sequences. However, the transformer may have trouble dealing with the long sequence time-series data due to the heavy computation. This research compares differnt methods that make use of the information redundancy and their combination from the perspective of computational efficiency and prediction accuracy. 
 
 ## Introduction
 
@@ -73,25 +73,34 @@ Not all time series are predictable, the ones that is feasible to be better fore
 
 (table)
 ## Methodology
-The information redundancy leads to the common solutions of using transformer to deal with long sequence time-series forecasting(LSTF) problems, where models focus more on valuable datapoints to extract time-series features.
+The information redundancy leads to the common solutions of using transformer to deal with long sequence time-series forecasting(LSTF) problems, where models focus more on valuable datapoints to extract time-series features. Notable models are focsing on the less explored and challenging long-term time series forecasting(LTSF) problem, include Log- Trans, Informer, Autoformer, Pyraformer, Triformer and the recent FEDformer. <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite> There are several main solutions: 
 
-There are notable models focsing on the less explored and challenging long-term time series forecasting(LTSF) problem, include Log- Trans, Informer, Autoformer, Pyraformer, Triformer and the recent FEDformer. <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite> The Informer model applies ProbSparse self-attention mechanism to let each key to only attend to several dominant queries and then use the distilling operation to deal with the redundance. The operation privileges the superior ones with dominaitng features and make a focused self-attention feature map in the next layer, which trims the input's time dimension.<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite> Besides, additional position encoding can help the model to understand the periodicity inherented in traffic data, which implies applying the relative or global positioin encoding interms of weeks and days. <d-cite key="https://doi.org/10.1111/tgis.12644"></d-cite>
+Data decomposition. Data decomposition refers to the process of breakking down a complex dataset into simpler, manageable components. Autoformer <d-cite key="wu2021autoformer"></d-cite> first applies seasonal-trend decomposition behind each neural block, which is a standard method in time series analysis to make raw data more predictable <d-cite key="cleveland1990stl"></d-cite>. Specifically, they use a moving average kernel on the input sequence to extract the trend-cyclical component of the time series. The difference between the original sequence and the trend component is regarded as the seasonal component. <d-cite key="Zeng_Chen_Zhang_Xu_2023"></d-cite>
 
-Various methods introduce time-series features in differnt ways for prtformance or efficiency improvements. 
+Learning time trend. Positional embeddings are widely used in transformer architecture to capture spatial information. <d-cite key="feichtenhofer2022masked"></d-cite> Moreover, additional position embeddings can help the model to understand the periodicity inherented in traffic data, which implies applying the relative or global positioin encoding interms of weeks and days. <d-cite key="https://doi.org/10.1111/tgis.12644"></d-cite>
 
+Distillation. The Informer model applies ProbSparse self-attention mechanism to let each key to only attend to several dominant queries and then use the distilling operation to deal with the redundance. The operation privileges the superior ones with dominaitng features and make a focused self-attention feature map in the next layer, which trims the input's time dimension.<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite> 
+
+Patching. patching can help us to understand the temporal correlation between data in a time-step interval. It enhances the locality and captures the comprehensive semantic information in different time steps. <d-cite key="nie2023time"></d-cite> 
 
 ## Experiment
-For the implementation of Informer and PatchTST, we used the code provided by the authors.<d-footnote>https://github.com/yuqinie98/patchtst</d-footnote>.
-
 ### Dataset
-We used a multivariate traffic<d-footnote>https://pems.dot.ca.gov/</d-footnote> dataset records the road occupancy rates from different sensors on San Francisco freeways. We selected first 100 censors as our experiment dataset. 
+We used a multivariate traffic<d-footnote>https://pems.dot.ca.gov/</d-footnote> dataset that records the road occupancy rates from different sensors on San Francisco freeways. We selected first 100 censors as our experiment dataset. 
+
+### Experimental Settings
+For the implementation of Informer and PatchTST, we used the code provided by the authors.<d-footnote>https://github.com/yuqinie98/patchtst</d-footnote>.
+We mean to compare different methods that aim to efficiently explore on long sequence data, considering both efficiency and accuracy. This leads to a discussion about the trade off when using these models to solve real life cases and the possibility of improving or combing different methods.
+
+1. All the models are following the same setup, using 10 epoch and batch size 12 with input length [96,192,336,720] and predictioin length [96,192,336,720]. The performance and cost time is listed in the table 2. 
+
+2. We slightly change the setup of two models to compare different methods. We apply the data decomposition with PatchTST and deactive the self-attention distilling mechanism in Informer to explore the significance of these techniques.
 
 ## Result
 
 ## Conclusion and Discussion
 
 
-In addition to transformer architecture, a combination of various methods or framework may help us to benefit from the advantages of different models. The transformer-based framwork for multivariate time series representation lerning is proposed by George et al.  <d-cite key="DBLP:journals/corr/abs-2010-02803"></d-cite> The Spatial-Temporal Graph Neural Networks(STGNNs) is another widely used model in traffic prediction, which only consider short-term data. The STEP model is propsde to enhance STGNN with a scalable time series pre-training mode. In the pre-training stage. They split very long-term time series into segments and feed them into TSFormer, which is trained via the masked autoencoding strategy. And then in the forecasting stage. They enhance the downstream STGNN based on the segment-level representations of the pre-trained TSFormer.<d-cite key="10.1145/3534678.3539396"></d-cite>
+In addition to applying transformer architecture alone, a combination of various methods or framework may help us to benefit from the advantages of different models. The transformer-based framwork for multivariate time series representation lerning is proposed by George et al.  <d-cite key="DBLP:journals/corr/abs-2010-02803"></d-cite> The Spatial-Temporal Graph Neural Networks(STGNNs) is another widely used model in traffic prediction, which only consider short-term data. The STEP model is propsde to enhance STGNN with a scalable time series pre-training mode. In the pre-training stage. They split very long-term time series into segments and feed them into TSFormer, which is trained via the masked autoencoding strategy. And then in the forecasting stage. They enhance the downstream STGNN based on the segment-level representations of the pre-trained TSFormer.<d-cite key="10.1145/3534678.3539396"></d-cite>
 
 
 <!-- ## Citations
