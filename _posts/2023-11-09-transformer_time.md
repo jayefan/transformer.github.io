@@ -81,25 +81,22 @@ Learning time trend. Positional embeddings are widely used in transformer archit
 
 Distillation. The Informer model applies ProbSparse self-attention mechanism to let each key to only attend to several dominant queries and then use the distilling operation to deal with the redundance. The operation privileges the superior ones with dominaitng features and make a focused self-attention feature map in the next layer, which trims the input's time dimension.<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite> 
 
-Patching. patching can help us to understand the temporal correlation between data in a time-step interval. It enhances the locality and captures the comprehensive semantic information in different time steps. <d-cite key="nie2023time"></d-cite> 
+Patching. As proposed in ViT<d-cite key="DBLP:journals/corr/abs-2010-11929"></d-cite>, the patch embeddings are small segments of an input image, which transfer the 2D image to 1D sequence. Each patch contains partial information of the image and additional positional embedding helps the transformer to understand the order of a series of patch embeddings. In the case of time series, though it is 1D sequence that can be received by standard transformer, the self-attention may not efficiently capture the long dependencies and cause heavy computation. Hence, dealing with time-series data, patching is used to understand the temporal correlation between data in a time-step interval. Unlike point-wise input tokens, it enhances the locality and captures the comprehensive semantic information in different time steps by aggregating times steps into subseries-level patches. <d-cite key="nie2023time"></d-cite> 
 
 ## Experiment
 ### Dataset
 We used a multivariate traffic<d-footnote>https://pems.dot.ca.gov/</d-footnote> dataset that records the road occupancy rates from different sensors on San Francisco freeways. We selected first 100 censors as our experiment dataset. 
 
 ### Experimental Settings
-For the implementation of Informer and PatchTST, we used the code provided by the authors.<d-footnote>https://github.com/yuqinie98/patchtst</d-footnote>.
-We mean to compare different methods that aim to efficiently explore on long sequence data, considering both efficiency and accuracy. This leads to a discussion about the trade off when using these models to solve real life cases and the possibility of improving or combing different methods.
+We choose two models, Informer<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_2021"></d-cite>  and PatchTST<d-cite key="nie2023time"></d-cite> to test the influence of distillation, positional embeddings, patching and data decomposition. For the implementation of Informer and PatchTST, we used the code provided by the authors.<d-footnote>https://github.com/yuqinie98/patchtst</d-footnote>. We mean to compare different methods that aim to efficiently explore on long sequence data, considering both efficiency and accuracy. This leads to a discussion about the trade off when using these models to solve real life cases and the possibility of improving or combing different methods.
 
-1. All the models are following the same setup, using 10 epoch and batch size 12 with input length [96,192,336,720] and predictioin length [96,192,336,720]. The performance and cost time is listed in the table 2. 
+1. Compare efficieny and accuracy of distillation and patching. All the models are following the same setup, using 10 epochs and batch size 12 with input length [96,192,336,720] and predictioin length [96,192,336,720]. The performance and cost time is listed in the table 2. 
 
-2. We slightly change the setup of two models to compare different methods. We apply the data decomposition with PatchTST and deactive the self-attention distilling mechanism in Informer to explore the significance of these techniques.
+2. Explore the influence of data decomposition and distillation. We slightly change the setup of two models to compare different methods. We apply the data decomposition with PatchTST and deactive the self-attention distilling mechanism in Informer to explore the significance of these techniques.
 
 ## Result
 
 ## Conclusion and Discussion
-
-
 In addition to applying transformer architecture alone, a combination of various methods or framework may help us to benefit from the advantages of different models. The transformer-based framwork for multivariate time series representation lerning is proposed by George et al.  <d-cite key="DBLP:journals/corr/abs-2010-02803"></d-cite> The Spatial-Temporal Graph Neural Networks(STGNNs) is another widely used model in traffic prediction, which only consider short-term data. The STEP model is propsde to enhance STGNN with a scalable time series pre-training mode. In the pre-training stage. They split very long-term time series into segments and feed them into TSFormer, which is trained via the masked autoencoding strategy. And then in the forecasting stage. They enhance the downstream STGNN based on the segment-level representations of the pre-trained TSFormer.<d-cite key="10.1145/3534678.3539396"></d-cite>
 
 
