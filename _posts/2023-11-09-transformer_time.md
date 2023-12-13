@@ -1,7 +1,7 @@
 ---
 layout: distill
-title: Transformer for long sequence time series data
-description: A project for MIT 2023 Fall 6.S898 Deep Learning about the adaptation of transformer in long sequance time series data,  in the case of traffic prediction.
+title: A Comparative Study on Long Sequence Time-Series Data of transformer on long sequence time series data
+description: This study evaluates Transformer models in traffic flow prediction. Focusing on long sequence time-series data, it evaluates the balance between computational efficiency and accuracy, suggesting potential combinations of methods for improved forecasting.
 date: 2023-12-12
 htmlwidgets: true
 
@@ -116,14 +116,47 @@ We choose two models, Informer<d-cite key="Zhou_Zhang_Peng_Zhang_Li_Xiong_Zhang_
     Figure 2: PatchTST architecture.<d-cite key="nie2023time"></d-cite>
 </div>
 
-1. Compare efficieny and accuracy of distillation and patching. All the models are following the same setup, using 10 epochs and batch size 12 with input length $$\in$$ {96,192,336,720} and predictioin length $$\in$$ {96,192,336,720}. The performance and cost time is listed in the table 2. 
+Setting 1. Compare efficieny and accuracy of distillation and patching. All the models are following the same setup, using 10 epochs and batch size 12 with input length $$\in$$ {96,192,336,720} and predictioin length $$\in$$ {96,192,336,720}. The performance and cost time is listed in the table 2. 
 
-2. Explore the influence of data decomposition and distillation. We slightly change the setup of two models to compare different methods. We apply the data decomposition with PatchTST and deactive the self-attention distilling mechanism in Informer to explore the significance of these techniques.
+Setting 2. Explore the influence of data decomposition. We slightly change the setup to compare different methods. We apply the data decomposition with PatchTST to explore the significance of these techniques.
 
 ## Result
-1. 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/2023-11-09-transformer_time/test1.png" class="img-fluid" %}
+    </div>
+</div>
+<div class="caption">
+    Table 2: Setting 1. Traffic forecasting result with Informer and supervised PatchTST. Input length in {96,192,336,720} and predictioin length in {96,192,336,720}.
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/2023-11-09-transformer_time/1.png" class="img-fluid" %}
+    </div>
+</div>
+<div class="caption">
+    Figure 3: Setting 1. Traffic forecasting result with Informer and supervised PatchTST. Input length in {96,192,336,720} and predictioin length = 720.
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/2023-11-09-transformer_time/test2.png" class="img-fluid" %}
+    </div>
+</div>
+<div class="caption">
+    Table 3: Setting 2.Traffic forecasting result with supervised PatchTST, with and without data decomposition. Input length = 336 and predictioin length in {96,192,336,720}.
+</div>
+
+Sufficiency. According to Table 2. The Informer(ProbSparse self-attention, distilling operation,positional embedding) is generally more sufficient than PatchTST(patching, positional embedding). Especially with the increase of input sequence, Informer with idstilling operation can forecast in significantly less time comparing to patching method. Across differnt prediction sequence length, PatchTST does have much difference and Informer tends to cost more time with longer prediction. According to table 3, with data decomposition, PatchTST spends more time while does not achieve significant better performance.
+
+Accuracy. According to Table 2. In all scenarios, the performance of PatchTST is better than Informer considering the prediction accuracy. Along with the increase of input sequence length, PatchTST tends to have better accuracy while Informer stays stable.
+
+Overall, we can induct from the design of two models about their performances. Informer is able to save more time with distilling operation and PatchTST can get better accuracy with the capture of local and global information. Though patch embeddings help the model to get better accuracy with prediction task, it achieves so at the expense of consuming significant amount of time. When the input sequence is 720, PatchTST takes more than twice as long as B. 
 
 ## Conclusion and Discussion
+Based on existing models, different measures can be combined to balance the time consumed for forecasting with the accuracy that can be achieved. Due to time constraints, this study did not have the opportunity to combine additional measures for comparison. We hope to continue the research afterward and compare these performances.
+
 In addition to applying transformer architecture alone, a combination of various methods or framework may help us to benefit from the advantages of different models. The transformer-based framwork for multivariate time series representation lerning is proposed by George et al.  <d-cite key="DBLP:journals/corr/abs-2010-02803"></d-cite> The Spatial-Temporal Graph Neural Networks(STGNNs) is another widely used model in traffic prediction, which only consider short-term data. The STEP model is propsde to enhance STGNN with a scalable time series pre-training mode. In the pre-training stage. They split very long-term time series into segments and feed them into TSFormer, which is trained via the masked autoencoding strategy. And then in the forecasting stage. They enhance the downstream STGNN based on the segment-level representations of the pre-trained TSFormer.<d-cite key="10.1145/3534678.3539396"></d-cite>
 
 

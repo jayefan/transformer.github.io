@@ -4,7 +4,7 @@
  <title>6.S898 Deep Learning Blogs 2023</title>
  <link href="http://0.0.0.0:8080/staging/atom.xml" rel="self"/>
  <link href="http://0.0.0.0:8080/staging/"/>
- <updated>2023-12-12T21:56:47-06:00</updated>
+ <updated>2023-12-12T22:53:03-06:00</updated>
  <id>http://0.0.0.0:8080</id>
  <author>
    <name></name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>Transformer for long sequence time series data</title>
+   <title>A Comparative Study on Long Sequence Time-Series Data of transformer on long sequence time series data</title>
    <link href="http://0.0.0.0:8080/blog/2023/transformer_time/"/>
    <updated>2023-12-12T00:00:00-06:00</updated>
    <id>http://0.0.0.0:8080/staging/blog/2023/transformer_time</id>
@@ -115,21 +115,92 @@
     Figure 2: PatchTST architecture.&lt;d-cite key=&quot;nie2023time&quot;&gt;&lt;/d-cite&gt;
 &lt;/div&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Compare efficieny and accuracy of distillation and patching. All the models are following the same setup, using 10 epochs and batch size 12 with input length \(\in\) {96,192,336,720} and predictioin length \(\in\) {96,192,336,720}. The performance and cost time is listed in the table 2.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Explore the influence of data decomposition and distillation. We slightly change the setup of two models to compare different methods. We apply the data decomposition with PatchTST and deactive the self-attention distilling mechanism in Informer to explore the significance of these techniques.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Setting 1. Compare efficieny and accuracy of distillation and patching. All the models are following the same setup, using 10 epochs and batch size 12 with input length \(\in\) {96,192,336,720} and predictioin length \(\in\) {96,192,336,720}. The performance and cost time is listed in the table 2.&lt;/p&gt;
+
+&lt;p&gt;Setting 2. Explore the influence of data decomposition. We slightly change the setup to compare different methods. We apply the data decomposition with PatchTST to explore the significance of these techniques.&lt;/p&gt;
 
 &lt;h2 id=&quot;result&quot;&gt;Result&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;div class=&quot;row mt-3&quot;&gt;
+    &lt;div class=&quot;col-sm mt-3 mt-md-0&quot;&gt;
+        &lt;figure&gt;
+
+  &lt;picture&gt;
+    
+    &lt;source class=&quot;responsive-img-srcset&quot; media=&quot;(max-width: 480px)&quot; srcset=&quot;/staging/assets/img/2023-11-09-transformer_time/test1-480.webp&quot; /&gt;
+    &lt;source class=&quot;responsive-img-srcset&quot; media=&quot;(max-width: 800px)&quot; srcset=&quot;/staging/assets/img/2023-11-09-transformer_time/test1-800.webp&quot; /&gt;
+    &lt;source class=&quot;responsive-img-srcset&quot; media=&quot;(max-width: 1400px)&quot; srcset=&quot;/staging/assets/img/2023-11-09-transformer_time/test1-1400.webp&quot; /&gt;
+    
+
+    &lt;!-- Fallback to the original file --&gt;
+    &lt;img src=&quot;/staging/assets/img/2023-11-09-transformer_time/test1.png&quot; class=&quot;img-fluid&quot; width=&quot;auto&quot; height=&quot;auto&quot; onerror=&quot;this.onerror=null; $(&apos;.responsive-img-srcset&apos;).remove();&quot; /&gt;
+
+  &lt;/picture&gt;
+
+&lt;/figure&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;caption&quot;&gt;
+    Table 2: Setting 1. Traffic forecasting result with Informer and supervised PatchTST. Input length in {96,192,336,720} and predictioin length in {96,192,336,720}.
+&lt;/div&gt;
+
+&lt;div class=&quot;row mt-3&quot;&gt;
+    &lt;div class=&quot;col-sm mt-3 mt-md-0&quot;&gt;
+        &lt;figure&gt;
+
+  &lt;picture&gt;
+    
+    &lt;source class=&quot;responsive-img-srcset&quot; media=&quot;(max-width: 480px)&quot; srcset=&quot;/staging/assets/img/2023-11-09-transformer_time/1-480.webp&quot; /&gt;
+    &lt;source class=&quot;responsive-img-srcset&quot; media=&quot;(max-width: 800px)&quot; srcset=&quot;/staging/assets/img/2023-11-09-transformer_time/1-800.webp&quot; /&gt;
+    &lt;source class=&quot;responsive-img-srcset&quot; media=&quot;(max-width: 1400px)&quot; srcset=&quot;/staging/assets/img/2023-11-09-transformer_time/1-1400.webp&quot; /&gt;
+    
+
+    &lt;!-- Fallback to the original file --&gt;
+    &lt;img src=&quot;/staging/assets/img/2023-11-09-transformer_time/1.png&quot; class=&quot;img-fluid&quot; width=&quot;auto&quot; height=&quot;auto&quot; onerror=&quot;this.onerror=null; $(&apos;.responsive-img-srcset&apos;).remove();&quot; /&gt;
+
+  &lt;/picture&gt;
+
+&lt;/figure&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;caption&quot;&gt;
+    Figure 3: Setting 1. Traffic forecasting result with Informer and supervised PatchTST. Input length in {96,192,336,720} and predictioin length = 720.
+&lt;/div&gt;
+
+&lt;div class=&quot;row mt-3&quot;&gt;
+    &lt;div class=&quot;col-sm mt-3 mt-md-0&quot;&gt;
+        &lt;figure&gt;
+
+  &lt;picture&gt;
+    
+    &lt;source class=&quot;responsive-img-srcset&quot; media=&quot;(max-width: 480px)&quot; srcset=&quot;/staging/assets/img/2023-11-09-transformer_time/test2-480.webp&quot; /&gt;
+    &lt;source class=&quot;responsive-img-srcset&quot; media=&quot;(max-width: 800px)&quot; srcset=&quot;/staging/assets/img/2023-11-09-transformer_time/test2-800.webp&quot; /&gt;
+    &lt;source class=&quot;responsive-img-srcset&quot; media=&quot;(max-width: 1400px)&quot; srcset=&quot;/staging/assets/img/2023-11-09-transformer_time/test2-1400.webp&quot; /&gt;
+    
+
+    &lt;!-- Fallback to the original file --&gt;
+    &lt;img src=&quot;/staging/assets/img/2023-11-09-transformer_time/test2.png&quot; class=&quot;img-fluid&quot; width=&quot;auto&quot; height=&quot;auto&quot; onerror=&quot;this.onerror=null; $(&apos;.responsive-img-srcset&apos;).remove();&quot; /&gt;
+
+  &lt;/picture&gt;
+
+&lt;/figure&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;caption&quot;&gt;
+    Table 3: Setting 2.Traffic forecasting result with supervised PatchTST, with and without data decomposition. Input length = 336 and predictioin length in {96,192,336,720}.
+&lt;/div&gt;
+
+&lt;p&gt;Sufficiency. According to Table 2. The Informer(ProbSparse self-attention, distilling operation,positional embedding) is generally more sufficient than PatchTST(patching, positional embedding). Especially with the increase of input sequence, Informer with idstilling operation can forecast in significantly less time comparing to patching method. Across differnt prediction sequence length, PatchTST does have much difference and Informer tends to cost more time with longer prediction. According to table 3, with data decomposition, PatchTST spends more time while does not achieve significant better performance.&lt;/p&gt;
+
+&lt;p&gt;Accuracy. According to Table 2. In all scenarios, the performance of PatchTST is better than Informer considering the prediction accuracy. Along with the increase of input sequence length, PatchTST tends to have better accuracy while Informer stays stable.&lt;/p&gt;
+
+&lt;p&gt;Overall, we can induct from the design of two models about their performances. Informer is able to save more time with distilling operation and PatchTST can get better accuracy with the capture of local and global information. Though patch embeddings help the model to get better accuracy with prediction task, it achieves so at the expense of consuming significant amount of time. When the input sequence is 720, PatchTST takes more than twice as long as B.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion-and-discussion&quot;&gt;Conclusion and Discussion&lt;/h2&gt;
+&lt;p&gt;Based on existing models, different measures can be combined to balance the time consumed for forecasting with the accuracy that can be achieved. Due to time constraints, this study did not have the opportunity to combine additional measures for comparison. We hope to continue the research afterward and compare these performances.&lt;/p&gt;
+
 &lt;p&gt;In addition to applying transformer architecture alone, a combination of various methods or framework may help us to benefit from the advantages of different models. The transformer-based framwork for multivariate time series representation lerning is proposed by George et al.  &lt;d-cite key=&quot;DBLP:journals/corr/abs-2010-02803&quot;&gt;&lt;/d-cite&gt; The Spatial-Temporal Graph Neural Networks(STGNNs) is another widely used model in traffic prediction, which only consider short-term data. The STEP model is propsde to enhance STGNN with a scalable time series pre-training mode. In the pre-training stage. They split very long-term time series into segments and feed them into TSFormer, which is trained via the masked autoencoding strategy. And then in the forecasting stage. They enhance the downstream STGNN based on the segment-level representations of the pre-trained TSFormer.&lt;d-cite key=&quot;10.1145/3534678.3539396&quot;&gt;&lt;/d-cite&gt;&lt;/p&gt;
 
 &lt;!-- ## Citations
